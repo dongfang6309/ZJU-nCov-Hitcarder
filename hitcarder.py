@@ -130,12 +130,13 @@ class HitCarder(object):
         resp = self.sess.get(self.captcha_url)
         # form change
         # new_info['szgjcs'] = ""
-        # new_info['zgfx14rfhsj'] = ""
+        new_info['zgfx14rfhsj'] = ""
+        new_info['sqhzjkkys'] = 1
         new_info['geo_api_info'] = old_info['geo_api_info'] # 定位
         new_info['address'] = old_info['address']
         new_info['area'] = old_info['area']
         new_info['city'] = old_info['city']
-        # new_info['ismoved'] = 0
+        new_info['ismoved'] = 0
         new_info['sfzx'] = old_info['sfzx'] # 在校
         new_info['sfymqjczrj'] = old_info['sfymqjczrj'] # 入境
         new_info['sfqrxxss'] = 1 # 属实
@@ -195,7 +196,7 @@ def main(username, password):
     try:
         ret = hit_carder.check_form()
         if not ret:
-            print('请更新打卡格式')
+            print('请更新信息格式')
     except Exception as err:
         return 1, '获取信息失败，请手动打卡: ' + str(err)
 
